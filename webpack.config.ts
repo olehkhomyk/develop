@@ -3,25 +3,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-	entry: './src/app.ts',
-	devServer: {
+  mode: 'development',
+	entry: './src/index.ts',
+  devtool: 'inline-source-map',
+  devServer: {
 		contentBase: './dist'
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: 'Output manager'
+			title: 'Develop features'
 		}),
 		new CleanWebpackPlugin()
 	],
 	module: {
 		rules: [
 			{
-				test: /\.ts?$/,
+				test: /\.tsx?$/,
 				use: 'ts-loader',
 				exclude: /node_modules/,
 			},
 		]
 	},
+  resolve: {
+    extensions: ['.tsx', 'ts', 'js']
+  },
 	output: {
 		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, 'dist')
