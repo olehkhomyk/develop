@@ -1,0 +1,10 @@
+{
+  "Product": {
+    "title": "string",
+    "imageUrl": "string",
+    "available": "boolean",
+    "createdAt": "date",
+    "price": "int",
+    "description": "string"
+  }
+}
